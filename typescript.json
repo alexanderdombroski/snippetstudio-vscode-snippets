@@ -1,0 +1,9 @@
+{
+  "log the coolest language": {
+    "prefix": "scream",
+    "body": [
+      "console.log(\"TYPESCRIPT!\")"
+    ],
+    "description": "test snippet"
+  }
+}

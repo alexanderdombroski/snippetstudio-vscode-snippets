@@ -1,0 +1,31 @@
+{
+  "Send Message": {
+    "prefix": "send",
+    "body": [
+      "send_message(Pid,Message,Response_handler)->",
+      "    Pid ! {self(),Message},",
+      "    receive",
+      "        Response -> Response_handler(Response)",
+      "    end."
+    ],
+    "description": "Send a message to an Erlang process (custom snippet)"
+  },
+  "eunit test function": {
+    "prefix": "eunit",
+    "body": [
+      "-ifdef(EUNIT).",
+      "",
+      "-include_lib(\"eunit/include/eunit.hrl\").",
+      "",
+      "function_name_test_() ->",
+      "    [",
+      "        ?_assert(BoolExpr),",
+      "        ?_assertEqual(Expect, Expr),",
+      "        ?_assertError(Term, Expr)",
+      "    ].",
+      "",
+      "-endif."
+    ],
+    "description": "Creates a section to place eunit tests"
+  }
+}

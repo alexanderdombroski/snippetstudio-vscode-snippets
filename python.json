@@ -1,0 +1,111 @@
+{
+  "Match Case": {
+    "prefix": "match_case",
+    "body": [
+      "match ${1:variable}:",
+      "    case ${2:value}:",
+      "        pass$0",
+      "    case ${3:value}:",
+      "        pass",
+      "    case _:",
+      "        pass"
+    ],
+    "description": "Creates a match case with two cases and placeholders"
+  },
+  "If/Else": {
+    "prefix": "if",
+    "body": [
+      "if codition:",
+      "    pass",
+      "elif condition:",
+      "    pass",
+      "else:",
+      "    pass"
+    ],
+    "description": "Creates a conditional"
+  },
+  "GetValidInt": {
+    "prefix": "valid",
+    "body": [
+      "def get_valid_int(prompt):",
+      "    return_value = \"\"",
+      "    while not str.isdigit(return_value):",
+      "        return_value = input(prompt)",
+      "    return return_value"
+    ],
+    "description": "Creates a function to get a valid integer"
+  },
+  "printf": {
+    "prefix": "printf",
+    "body": [
+      "print(f\"{}\")"
+    ],
+    "description": "print statement with base formatting"
+  },
+  "read json from file": {
+    "prefix": "json_read",
+    "body": [
+      "def read_json(filename: str) -> any:",
+      "    with open(filename) as file_data:",
+      "        json_data = json.load(file_data)",
+      "        return json_data"
+    ],
+    "description": "Reads json from a file using the import json library"
+  },
+  "write json to a file": {
+    "prefix": "json_write",
+    "body": [
+      "def write_json(data: any, filename: str) -> None:",
+      "    with open(filename, 'w') as file:",
+      "        json.dump(data, file, indent=4)"
+    ],
+    "description": "Creates a function to write json to a file using the json library"
+  },
+  "read json from an api using requests": {
+    "prefix": "json_read_api",
+    "body": [
+      "def json_read_api(url: str) -> dict:",
+      "    try:",
+      "        response = requests.get(url)",
+      "        response.raise_for_status()",
+      "        return response.json()",
+      "    except requests.exceptions.HTTPError as http_err:",
+      "        raise RuntimeError(f\"HTTP error occurred: {http_err}\") from None",
+      "    except requests.exceptions.RequestException as req_err:",
+      "        raise RuntimeError(f\"Request error occurred: {req_err}\") from None",
+      "    except ValueError as json_err:",
+      "        raise ValueError(f\"JSON decode error: {json_err}\") from None"
+    ],
+    "description": "Creates a function to return a json object from an API"
+  },
+  "print api data from url": {
+    "prefix": "json_print_api",
+    "body": [
+      "def display_api_data(url: str) -> None:",
+      "    response = requests.get(url)",
+      "    if response.status_code == 200:",
+      "        data = response.json()",
+      "        print(json.dumps(data, indent=4))",
+      "    else:",
+      "        print(f\"Request failed with status code {response.status_code}\")"
+    ],
+    "description": "gets json data using requests, parses with json, then prints"
+  },
+  "Class with Inheritance": {
+    "prefix": "class_inherit",
+    "body": [
+      "class CLASS_NAME():",
+      "    def __init__():",
+      "        super().__init__()"
+    ],
+    "description": "Creates a class with an init and inheritance"
+  },
+  "if->main()": {
+    "prefix": "main()",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    main()"
+    ],
+    "description": "If __name__ == main run main()"
+  }
+}

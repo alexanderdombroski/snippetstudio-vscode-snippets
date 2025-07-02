@@ -1,0 +1,51 @@
+{
+  "Create Class with Public Constructor": {
+    "prefix": "class",
+    "body": [
+      "public class ${1:ClassName} {",
+      "    // Attributes:",
+      "",
+      "    // Constructors:",
+      "    public ${1:ClassName}() {$0}",
+      "",
+      "    // Methods:",
+      "",
+      "}"
+    ],
+    "description": "Create a class with an empty constructer"
+  },
+  "Create Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch (TestVariable) {",
+      "    case 1:",
+      "        ",
+      "        break;",
+      "    case 2:",
+      "        ",
+      "        break;",
+      "    default:",
+      "        ",
+      "        break;",
+      "}"
+    ],
+    "description": "Create Switch Statement with two cases and a default"
+  },
+  "Get Valid Int": {
+    "prefix": "getint",
+    "body": [
+      "static int GetValidInt(string prompt, int lowerBound, int upperBound) {",
+      "    // Repeatedly asks user for a menu option choice until a valid answer is given, and returns it.",
+      "    bool invalidResponse;",
+      "    int returnValue;",
+      "    do {",
+      "        Console.Write(prompt);",
+      "        string response = Console.ReadLine();",
+      "        invalidResponse = !int.TryParse(response, out returnValue);",
+      "    } while (returnValue < lowerBound || returnValue > upperBound || invalidResponse);",
+      "    return returnValue;",
+      "}"
+    ],
+    "description": "Creates a function that prompts the user until they've entered a valid integer within a range."
+  }
+}

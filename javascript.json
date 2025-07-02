@@ -1,0 +1,53 @@
+{
+  "case from switch": {
+    "prefix": "case",
+    "body": [
+      "case \"value\":",
+      "    ",
+      "    break;"
+    ],
+    "description": "case from switch"
+  },
+  "fetch snippet": {
+    "prefix": "fetch()",
+    "body": [
+      "fetch('${1:url}', { method: '${2|GET,POST,PUT,DELETE|}' })",
+      "    .then(response => response.json())",
+      "    .then(data => {$0})",
+      "    .catch(error => {",
+      "        console.error('Fetch error:', error);",
+      "    });"
+    ],
+    "description": "2 .thens and a .catch for fetching a file or api url"
+  },
+  "immediately invoked function expression": {
+    "prefix": "iife",
+    "body": [
+      "(function$1() {",
+      "    $0",
+      "})();"
+    ],
+    "description": "A function that runs immediately"
+  },
+  "app.listen Express": {
+    "prefix": "express_app_listen",
+    "body": [
+      "app.listen(port, async () => {",
+      "    await testDatabase();",
+      "    console.log(`Server running on http://127.0.0.1:${port}`);",
+      "});"
+    ]
+  },
+  "Not Impliment Error!": {
+    "prefix": "not_implimented",
+    "body": [
+      "console.error(\"Not implimented yet!\");"
+    ]
+  },
+  "caps": {
+    "prefix": "caps",
+    "body": [
+      "${1/(.*)/${1:/upcase}/}"
+    ]
+  }
+}
