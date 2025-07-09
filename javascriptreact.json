@@ -1,0 +1,106 @@
+{
+  "default component": {
+    "prefix": [
+      "export",
+      "default"
+    ],
+    "body": [
+      "import React from \"react\";",
+      "",
+      "export default function $TM_FILENAME_BASE() {",
+      "  ",
+      "",
+      "  return (",
+      "    <>",
+      "      $0",
+      "    </>",
+      "  )",
+      "}"
+    ]
+  },
+  "useStateSnippet": {
+    "prefix": [
+      "state",
+      "useState"
+    ],
+    "body": [
+      "const [${1/(.*)/${1:/camelcase}/}, set${1/(.*)/${1:/pascalcase}/}] = useState($2)"
+    ]
+  },
+  "Provider": {
+    "prefix": [
+      "provider",
+      "context"
+    ],
+    "body": [
+      "import React, { createContext, useContext } from \"react\"",
+      "",
+      "const ${TM_FILENAME_BASE/^(.*?)(?=Context|Provider).*$/${1:/pascalcase}/}Context = createContext()",
+      "export const use${TM_FILENAME_BASE/^(.*?)(?=Context|Provider).*$/${1:/pascalcase}/}Context = () => useContext(${TM_FILENAME_BASE/^(.*?)(?=Context|Provider).*$/${1:/pascalcase}/}Context)",
+      "",
+      "export default function ${TM_FILENAME_BASE/^(.*?)(?=Context|Provider).*$/${1:/pascalcase}/}Provider({ children }) {",
+      "",
+      "  return (",
+      "    <${TM_FILENAME_BASE/^(.*?)(?=Context|Provider).*$/${1:/pascalcase}/}Context.Provider>",
+      "      {children}",
+      "    </${TM_FILENAME_BASE/^(.*?)(?=Context|Provider).*$/${1:/pascalcase}/}Context.Provider>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "Create a context provider to be used in the context/provider react pattern of managing state."
+  },
+  "useEffect Snippet": {
+    "prefix": [
+      "effect",
+      " useEffect"
+    ],
+    "body": [
+      "useEffect(() => {",
+      "  $1",
+      "}, [$2])$0"
+    ]
+  },
+  "log-effect": {
+    "prefix": "log-effect",
+    "body": [
+      "useEffect(() => {",
+      "  // eslint-disable-next-line no-console",
+      "  console.log($1, '$1')",
+      "}, [$1])$0"
+    ],
+    "description": "Log on component render"
+  },
+  "eslint-disable-no-console": {
+    "prefix": [
+      "eslint-disable-no-console",
+      "no-console"
+    ],
+    "body": [
+      "// eslint-disable-next-line no-console"
+    ]
+  },
+  "eslint-safe-log": {
+    "prefix": [
+      "eslint-log",
+      "log-lint",
+      "lint-log"
+    ],
+    "body": [
+      "// eslint-disable-next-line no-console",
+      "console.log($1, '$1')"
+    ]
+  },
+  "react-useCallback": {
+    "prefix": [
+      "callback",
+      "useCallback"
+    ],
+    "body": [
+      "useCallback(($1) => {",
+      "  $2",
+      "}, [$3])$0"
+    ],
+    "description": "A hook to save a large function you don't want to be recreated with every rerender."
+  }
+}
