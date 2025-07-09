@@ -1,1 +1,11 @@
-{}
+{
+  "mobile-first": {
+    "prefix": "media-mobile-first",
+    "body": [
+      "@media screen and (min-width: ${1:500px}) {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query set up for mobile first"
+  }
+}
