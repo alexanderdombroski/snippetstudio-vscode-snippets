@@ -24,6 +24,6 @@
       "})();"
     ],
     "description": "Function to play a ding sound",
-    "scope": "javascript,javascriptreact"
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
   }
 }
